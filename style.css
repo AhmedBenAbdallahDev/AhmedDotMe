@@ -1,37 +1,287 @@
-body {
-    font-family: sans-serif;
+* {
     margin: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Animated background gradient */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating gradient orbs */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 70%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 70%),
+        radial-gradient(circle at 40% 40%, rgba(120, 255, 198, 0.3) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: rotate(0deg) translateX(0px);
+    }
+    33% {
+        transform: rotate(120deg) translateX(50px);
+    }
+    66% {
+        transform: rotate(240deg) translateX(-50px);
+    }
+}
+
+/* Glassmorphism header */
 header {
-    background-color: #333;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
-    padding: 1rem 0;
+    padding: 2rem 0;
     text-align: center;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    position: relative;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradient 8s ease infinite;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes textGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 main {
-    padding: 1rem;
-    max-width: 800px;
+    padding: 2rem 1rem;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    z-index: 10;
 }
 
+/* Glassmorphism sections */
 section {
-    background: #fff;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
 }
 
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+section:hover::before {
+    left: 100%;
+}
+
+section:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(31, 38, 135, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+section h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+}
+
+section p, section a {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+section a {
+    color: #4ecdc4;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    background: rgba(78, 205, 196, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+section a:hover {
+    background: rgba(78, 205, 196, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+}
+
+/* Enhanced project cards */
 .project {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+.project::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255, 119, 198, 0.1), transparent);
+    animation: rotate 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.project:hover {
+    transform: scale(1.02) translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.4);
+}
+
+.project h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism footer */
 footer {
     text-align: center;
-    padding: 1rem 0;
-    background-color: #333;
-    color: #fff;
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 2rem;
+    position: relative;
+    z-index: 100;
+}
+
+/* Animated particles */
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
