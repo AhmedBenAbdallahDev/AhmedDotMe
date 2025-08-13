@@ -97,8 +97,8 @@ document.querySelectorAll('.project-item').forEach(item => {
         this.style.background = 'rgba(255, 255, 255, 0.08)';
         this.style.transform = 'translateX(10px)';
         
-        // Add subtle glow effect
-        this.style.boxShadow = '0 2px 10px rgba(138, 43, 226, 0.2)';
+        // Add very subtle white glow effect
+        this.style.boxShadow = '0 2px 10px rgba(255, 255, 255, 0.1)';
     });
     
     item.addEventListener('mouseleave', function() {
