@@ -59,6 +59,7 @@ out/
 
 # Ignore secrets and local configs
 secrets.env
+.env.production
 
 # Ignore generated files
 package-lock.json
