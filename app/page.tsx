@@ -17,9 +17,9 @@ export default function Home() {
       <div style={{ textAlign: 'center', maxWidth: '90vw', overflow: 'hidden' }}>
         <TextScramble
           phrases={[
-            'Tomorrow leans in.',
-            'The best is unwritten.',
-            'Light arrives soon.'
+            'The best is yet to be.',
+            "Tomorrow keeps its promise.",
+            'The future gathers light.'
           ]}
           pauseMs={1500}
           textClass="text-4xl md:text-7xl font-bold tracking-tighter text-white font-mono"
