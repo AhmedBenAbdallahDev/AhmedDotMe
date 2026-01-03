@@ -11,9 +11,10 @@ export default function Home() {
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center',
+      overflow: 'hidden',
       backgroundColor: '#0a0a0a'
     }}>
-      <div style={{ textAlign: 'center', maxWidth: '90vw' }}>
+      <div style={{ textAlign: 'center', maxWidth: '90vw', overflow: 'hidden' }}>
         <TextScramble
           phrases={[
             'I forge interactive worlds with intent.',

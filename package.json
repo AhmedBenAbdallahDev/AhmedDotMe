@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:images": "node ./scripts/generate-images.mjs"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18"
   },
   "dependencies": {

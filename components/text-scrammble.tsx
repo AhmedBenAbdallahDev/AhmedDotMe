@@ -127,14 +127,14 @@ const TextScramble = ({
   }, [mounted, autoStart, index, loop, pauseMs, phrases.join('|')]);
 
   if (!mounted) {
-    return <div className={textClass} style={{ minHeight: '1em', opacity: 0, textAlign: 'center' }} />;
+    return <div className={`${textClass} whitespace-nowrap`} style={{ minHeight: '4rem', opacity: 0, textAlign: 'center', display: 'inline-block' }} />;
   }
 
   return (
     <div
       ref={containerRef}
-      className={textClass}
-      style={{ minHeight: '1em', lineHeight: 1.15, willChange: 'contents', textAlign: 'center' }}
+      className={`${textClass} whitespace-nowrap`}
+      style={{ minHeight: '4rem', lineHeight: 1.15, willChange: 'contents', textAlign: 'center', display: 'inline-block' }}
       suppressHydrationWarning
     />
   );
