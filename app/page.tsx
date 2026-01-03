@@ -17,12 +17,9 @@ export default function Home() {
       <div style={{ textAlign: 'center', maxWidth: '90vw', overflow: 'hidden' }}>
         <TextScramble
           phrases={[
-            'I forge interactive worlds with intent.',
-            'Systems of play, engineered with care.',
-            'Code as craft; mechanics as language.',
-            'Design for immersion and durable clarity.',
-            'Work that lives where art meets engineering.',
-            'We build deliberate, meaningful experiences.'
+            'Tomorrow leans in.',
+            'The best is unwritten.',
+            'Light arrives soon.'
           ]}
           pauseMs={1500}
           textClass="text-4xl md:text-7xl font-bold tracking-tighter text-white font-mono"
