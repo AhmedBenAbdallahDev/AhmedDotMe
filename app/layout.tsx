@@ -40,6 +40,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <meta name="twitter:image" content="/og-image.png" />
         </head>
         {children}
+
+        {/* Fixed contact link at bottom-center */}
+        <footer className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 pointer-events-auto">
+          <a
+            href="mailto:ahmedbenabdallahdev@gmail.com"
+            className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors"
+            aria-label="Email Ahmed Ben Abdallah"
+            rel="noopener noreferrer"
+          >
+            ahmedbenabdallahdev@gmail.com
+          </a>
+        </footer>
       </body>
     </html>
   );

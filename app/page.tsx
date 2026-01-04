@@ -17,9 +17,10 @@ export default function Home() {
       <div style={{ textAlign: 'center', maxWidth: '90vw', overflow: 'hidden' }}>
         <TextScramble
           phrases={[
-            'The best is yet to be.',
-            "Tomorrow keeps its promise.",
-            'The future gathers light.'
+            'Silence keeps counsel.',
+            'Stone patient as thought.',
+            'Burden with purpose.',
+            'Paths are made by crossing.'
           ]}
           pauseMs={1500}
           textClass="text-4xl md:text-7xl font-bold tracking-tighter text-white font-mono"
